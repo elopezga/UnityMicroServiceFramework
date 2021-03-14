@@ -4,6 +4,9 @@
   "displayName": "Unity MicroServices Framework",
   "description": "A framework for Unity that facilitates you writting components as microservices to reduce coupling between systems.",
   "unity": "2020.1",
+  "dependencies": {
+    "com.realseriousgames.csharppromises": "3.0.1"
+  },
   "keywords": [
     "services", "microservices", "framework"
   ],

@@ -1,0 +1,14 @@
+{
+  "name": "com.bytesize.umsf",
+  "version": "1.0.0-beta",
+  "displayName": "Unity MicroServices Framework",
+  "description": "A framework for Unity that facilitates you writting components as microservices to reduce coupling between systems.",
+  "unity": "2020.1",
+  "keywords": [
+    "services", "microservices", "framework"
+  ],
+  "author": {
+    "name": "Byte Size",
+    "email": "bytesize.gamestudio@gmail.com"
+  }
+}

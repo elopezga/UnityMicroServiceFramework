@@ -29,6 +29,7 @@ namespace ByteSize.MSF
         private void Awake()
         {
             instance = this;
+            DontDestroyOnLoad(this.gameObject);
         }
 
         private bool IsServiceRegistered(string serviceUrl)

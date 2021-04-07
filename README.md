@@ -49,3 +49,26 @@ Later in your app, you can request from the SceneLoaderService:
 ```
 
 The SceneLoaderService will then execute the RespondToRequest function and will resolve as soon as it is done.
+
+## Passing Parameters
+There are times where you will want to pass parameters to your microservice. You can pass parameters through url-like parameters:
+```c#
+    string requestParameters = $"scenetoload=mycoolscene&isAdditive=true";
+    ServiceRequestRouter.Instance.SendRequest(new ServiceRequest("sceneloader.yourdomain", requestParameters, string.Empty));
+```
+
+You can then get these parameters in your microservice:
+```c#
+    public class SceneLoaderService : ASingletonBehaviourService<SceneLoaderService>
+    {
+        protected override string serviceUrl => "sceneloader.yourdomain";
+
+        public override IPromise RespondToRequest(ServiceRequest serviceRequest)
+        {
+            string nameOfSceneToLoad = serviceRequest.GetParameterValue<string>("scenetoload");
+            bool isAdditive = serviceRequest.GetParameterValue<bool>("isAdditive");
+
+            return LoadScene(nameOfSceneToLoad, isAdditive);
+        }
+    }
+```
